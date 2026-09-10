@@ -1,4 +1,4 @@
-# ALU Spec — Layer 1
+# ALU Spec
 
 ## Ports
 - a[3:0]        : operand A
