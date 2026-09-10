@@ -3,8 +3,8 @@
 A 4-bit ALU built in Verilog, with a control-unit FSM and mini-CPU planned as the next layer. Built as a hardware/RTL portfolio project.
 
 ## Status
-- **Layer 1 — ALU**: complete, tested, tagged [`v0.1-alu`](../../releases/tag/v0.1-alu)
-- **Layer 2 — CPU + FSM**: in progress
+- [x] **Layer 1 — ALU**: complete, tested, tagged [`v0.1-alu`](../../releases/tag/v0.1-alu)
+- [ ] **Layer 2 — CPU + FSM**: in progress
 
 ## ALU (`rtl/alu.v`)
 
