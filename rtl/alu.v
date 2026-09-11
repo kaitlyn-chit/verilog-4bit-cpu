@@ -1,4 +1,7 @@
 // 4-bit ALU — 8 operations selected via op_sel, see docs/alu_spec.md
+// Purely combinational — computes instantly, holds no state.
+// Role in CPU: performs the actual computation each time an instruction (e.g. ADD, SUB) executes.
+
 module alu(
     input  [3:0] a,
     input  [3:0] b,

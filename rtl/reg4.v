@@ -1,4 +1,7 @@
 // 4-bit accumulator register — synchronous reset, load-enabled
+// Sequential — holds its value across clock cycles until explicitly told to load or reset.
+// Role in CPU: the one working register (ACC). Stores the running result that ALU operations read from and write back into (e.g. ACC <- ACC + MEM[addr]).
+
 module reg4(
     input clk,
     input reset,
