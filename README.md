@@ -5,7 +5,7 @@ A 4-bit ALU built in Verilog, with a control-unit FSM and mini-CPU planned as th
 ## Status
 - [x] **Layer 1 — ALU**: complete, tested, tagged [`v0.1-alu`](../../releases/tag/v0.1-alu)
 - [ ] **Layer 2 — CPU + FSM**: in progress
-  - [x] Accumulator register (`reg4.v`) — done, 4 test cases passing (reset priority, load, hold, reset-from-nonzero)
+  - [x] Accumulator register (`reg4.v`) — 4 test cases passing (reset priority, load, hold, reset-from-nonzero)
   - [ ] Program counter (`pc.v`) — next
   - [ ] Instruction/data memory
   - [ ] Control unit FSM
