@@ -45,6 +45,15 @@ module tb_reg4;
             $display("PASS: holds value when load=0");
         else
             $display("FAIL: holds value when load=0 -- got data_out=%b", data_out_tb);
+
+    // TEST: reset from a known nonzero state — data_out was 0101 (Test 3)
+        reset_tb = 1'b1; load_tb = 1'b0; data_in_tb = 4'b0001;
+        @(posedge clk_tb); 
+        #1; 
+        if (data_out_tb == 4'b0000)
+            $display("PASS: reset overrides known nonzero value");
+        else
+            $display("FAIL: reset overrides known nonzero value -- got data_out=%b", data_out_tb);
     
     $finish;
     end
