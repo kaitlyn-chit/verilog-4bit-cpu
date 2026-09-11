@@ -11,6 +11,11 @@ A 4-bit ALU built in Verilog, with a control-unit FSM and mini-CPU planned as th
   - [ ] Control unit FSM
   - [ ] Top-level integration
 
+## Design docs
+- [`docs/alu_spec.md`](docs/alu_spec.md) — ALU operation table
+- [`docs/isa_spec.md`](docs/isa_spec.md) — full 16-instruction ISA
+- [`docs/datapath_spec.md`](docs/datapath_spec.md) — datapath module overview
+
 ## ALU (`rtl/alu.v`)
 
 A purely combinational 4-bit ALU, 8 operations selected by `op_sel[2:0]`.
