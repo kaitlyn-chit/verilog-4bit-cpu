@@ -55,6 +55,6 @@ module tb_pc;
         else
             $display("FAIL: pc wraps 15 to 0 -- got pc_out=%b", pc_out_tb);
 
-    $finish;
+        $finish;
     end
 endmodule

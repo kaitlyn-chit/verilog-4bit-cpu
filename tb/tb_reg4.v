@@ -55,6 +55,6 @@ module tb_reg4;
         else
             $display("FAIL: reset overrides known nonzero value -- got data_out=%b", data_out_tb);
     
-    $finish;
+        $finish;
     end
 endmodule
