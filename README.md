@@ -8,7 +8,7 @@ A 4-bit ALU built in Verilog, with a control-unit FSM and mini-CPU planned as th
   - [x] Accumulator register (`reg4.v`) — 4 test cases passing (reset priority, load, hold, reset-from-nonzero)
   - [x] Program counter (`pc.v`) — tagged [`v0.15-registers`](../../releases/tag/v0.15-registers)
   - [x] Instruction/data memory — tagged [`v0.2-datapath`](../../releases/tag/v0.2-datapath)
-  - [ ] Control unit FSM
+  - [x] Control unit FSM — tagged [`v0.3-control`](../../releases/tag/v0.3-control)
   - [ ] Top-level integration
 
 ## Design docs
