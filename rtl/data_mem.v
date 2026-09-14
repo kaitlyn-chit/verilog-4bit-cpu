@@ -13,6 +13,12 @@ module data_mem(
 
     // 16 separate 4-bit storage slots, indexed 0 through 15
     reg [3:0] mem [0:15];
+
+    // simulation-only starting values — represents the CPU's initial data segment.
+    initial begin
+        mem[8] = 4'd3;
+        mem[9] = 4'd1;
+    end
     
     always @(posedge clk) begin
         if (ena)

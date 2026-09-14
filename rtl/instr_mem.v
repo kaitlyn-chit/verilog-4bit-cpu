@@ -26,23 +26,14 @@ module instr_mem(
 );
     
     always @(*) begin
-        case(addr)
-            4'd0:  instr = {`NOP,   4'd0};
-            4'd1:  instr = {`LOAD,  4'd5};
-            4'd2:  instr = {`STORE, 4'd6};
-            4'd3:  instr = {`JMP,   4'd0};
-            4'd4:  instr = {`JZ,    4'd0};
-            4'd5:  instr = {`HALT,  4'd0};
-            4'd6:  instr = {`ADD,   4'd5};
-            4'd7:  instr = {`SUB,   4'd5};
-            4'd8:  instr = {`AND,   4'd5};
-            4'd9:  instr = {`OR,    4'd5};
-            4'd10: instr = {`XOR,   4'd5};
-            4'd11: instr = {`NOT,   4'd0};
-            4'd12: instr = {`SHL,   4'd0};
-            4'd13: instr = {`SHR,   4'd0};
-            default: instr = {`NOP, 4'd0};  // addresses 14-15, reserved/unused
-        endcase
-    end
+    case(addr)
+        4'd0: instr = {`LOAD, 4'd8};   // ACC <- MEM[8] (counter, starts at 3)
+        4'd1: instr = {`SUB,  4'd9};   // ACC <- ACC - MEM[9] (MEM[9] = 1)
+        4'd2: instr = {`JZ,   4'd4};   // if ACC == 0, jump to address 4 (done)
+        4'd3: instr = {`JMP,  4'd1};   // otherwise, loop back and subtract again
+        4'd4: instr = {`HALT, 4'd0};   // stop
+        default: instr = {`NOP, 4'd0};
+    endcase
+end
 endmodule
 
