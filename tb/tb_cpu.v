@@ -34,4 +34,9 @@ module tb_cpu;
         $display("Final PC = %d, ACC = %d", pc_out_tb, acc_out_tb);
         $finish;
     end
+    
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tb_cpu);
+    end
 endmodule

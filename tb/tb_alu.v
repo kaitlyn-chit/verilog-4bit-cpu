@@ -104,4 +104,10 @@ module tb_alu;
         
         $finish;
     end
+    
+    // record every signal's value over time into a file called dump.vcd
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tb_alu);
+    end
 endmodule
