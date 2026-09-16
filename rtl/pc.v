@@ -5,6 +5,7 @@
 module pc(
     input clk,
     input reset,
+    input pc_en,
     input jump_ena,
     input [3:0] jump_addr,
     output reg [3:0] pc_out 
@@ -13,10 +14,13 @@ module pc(
     always @(posedge clk) begin
         if (reset)
             pc_out <= 4'b0000;
-        else if (jump_ena)  // control unit says jump — go here instead
-            pc_out <= jump_addr;
-        else
-            pc_out <= pc_out + 1; // truncates silently, wraps 15 -> 0 
+        else if (pc_en) begin
+            if (jump_ena)  // control unit says jump — go here instead
+                pc_out <= jump_addr;
+            else
+                pc_out <= pc_out + 1; // truncates silently, wraps 15 -> 0 
+        end
+        // else: hold steady -- FSM still in Fetch/Decode
     end
 
 endmodule

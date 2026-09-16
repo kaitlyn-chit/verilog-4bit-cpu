@@ -3,11 +3,13 @@ module tb_pc;
     reg reset_tb;
     reg jump_ena_tb;
     reg [3:0] jump_addr_tb;
-    wire [3:0] pc_out_tb; 
+    wire [3:0] pc_out_tb;
+    reg pc_en_tb; 
 
     pc uut (
     .clk(clk_tb),
     .reset(reset_tb),
+    .pc_en(pc_en_tb),
     .jump_ena(jump_ena_tb),
     .jump_addr(jump_addr_tb),
     .pc_out(pc_out_tb)
@@ -19,6 +21,7 @@ module tb_pc;
     end
 
     initial begin
+        pc_en_tb = 1'b1;
         // TEST: reset overrides jump
         reset_tb = 1'b1; jump_ena_tb = 1'b1; jump_addr_tb = 4'b0101;
         @(posedge clk_tb); 

@@ -28,3 +28,4 @@ connecting existing, already-verified modules.
 | `reg_load` | `control_fsm_inst` | `reg4_inst.load` | capture a new accumulator value this cycle? |
 | `mem_ena` | `control_fsm_inst` | `data_mem_inst.ena` | write to data memory this cycle? |
 | `pc_jump_ena` | `control_fsm_inst` | `pc_inst.jump_ena` | override PC's normal +1 this cycle? |
+| `pc_en` | `control_fsm_inst` | `pc_inst.pc_en` | advance PC this cycle? (fires once per instruction, during Execute) |

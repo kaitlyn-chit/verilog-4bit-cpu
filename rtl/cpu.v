@@ -16,10 +16,12 @@ module cpu(
     wire is_load = (instr[7:4] == `LOAD);
     wire [3:0] reg_data_in = is_load ? data_mem_out : alu_result;
     wire acc_zero = (acc_out == 4'b0000);
+    wire pc_en;
 
     pc pc_inst (
         .clk(clk),
         .reset(reset),
+        .pc_en(pc_en),
         .jump_ena(pc_jump_ena),
         .jump_addr(instr[3:0]),
         .pc_out(pc_out)
@@ -63,7 +65,8 @@ module cpu(
         .alu_op_sel(alu_op_sel),
         .reg_load(reg_load),
         .mem_ena(mem_ena),
-        .pc_jump_ena(pc_jump_ena)
+        .pc_jump_ena(pc_jump_ena),
+        .pc_en(pc_en)
     );
 
 endmodule

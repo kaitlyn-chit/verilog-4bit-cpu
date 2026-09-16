@@ -9,7 +9,8 @@ module control_fsm(
     output reg [2:0] alu_op_sel,
     output reg reg_load,
     output reg mem_ena,
-    output reg pc_jump_ena
+    output reg pc_jump_ena,
+    output reg pc_en
 );
 
     localparam FETCH   = 2'b00;
@@ -45,8 +46,10 @@ module control_fsm(
         reg_load     = 1'b0;
         mem_ena      = 1'b0;
         pc_jump_ena  = 1'b0;
+        pc_en        = 1'b0;
 
         if (state == EXECUTE) begin
+            pc_en = 1'b1;  // advance PC exactly once, right here
             case(instr[7:4])
                 `LOAD: reg_load = 1'b1;
                 `STORE: mem_ena = 1'b1;

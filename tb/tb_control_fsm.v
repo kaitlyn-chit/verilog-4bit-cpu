@@ -7,6 +7,7 @@ module tb_control_fsm;
     wire reg_load_tb;
     wire mem_ena_tb;
     wire pc_jump_ena_tb;
+    wire pc_en_tb;
 
     control_fsm uut (
         .clk(clk_tb),
@@ -16,7 +17,8 @@ module tb_control_fsm;
         .alu_op_sel(alu_op_sel_tb),
         .reg_load(reg_load_tb),
         .mem_ena(mem_ena_tb),
-        .pc_jump_ena(pc_jump_ena_tb)
+        .pc_jump_ena(pc_jump_ena_tb),
+        .pc_en(pc_en_tb)
     );
 
     initial begin
@@ -78,5 +80,10 @@ module tb_control_fsm;
             $display("FAIL: HALTED ignores further instructions -- op_sel=%b load=%b", alu_op_sel_tb, reg_load_tb);
 
         $finish;
+    end
+
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, tb_control_fsm);
     end
 endmodule
